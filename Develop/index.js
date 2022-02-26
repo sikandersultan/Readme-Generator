@@ -27,8 +27,8 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'install',
-            message: 'Please enter some information about how to use and initiate your project file'
+            name: 'installation',
+            message: 'Please enter some information about how to install and initiate your project file'
         },
         {
             type: "input",
