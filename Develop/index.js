@@ -53,6 +53,16 @@ const questions = () => {
     ])
 }
 questions()
+.then(answers => {
+    return newReadme(answers)
+})
+
+.catch(err => {console.log(err)})
+
+.then(data => {
+    
+})
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
