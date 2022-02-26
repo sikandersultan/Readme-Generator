@@ -31,23 +31,28 @@ const questions = () => {
             message: 'Please enter some information about how to use and initiate your project file'
         },
         {
+            type: "input",
+            name: "usage",
+            message: "Please enter any information related to using this project"
+        },
+        {
             type: 'input',
             name: 'testing',
             message: 'Enter the relevant test commands or instructions for your project'
         },
         {
-            type: "checkbox",
+            type: "list",
             name: "license",
             message: "Licensing Options",
             choices: [
                 "Apache",
                 "MIT",
                 "Boost",
-                "Creative Commons",
+                "CreativeCommons",
                 "Eclipse",
                 "GNU",
                 "Mozilla",
-                "The Unilicense"
+                "TheUnilicense"
             ]
         }
     ])
@@ -60,14 +65,24 @@ questions()
 .catch(err => {console.log(err)})
 
 .then(data => {
-    
+    const newFile = data => {
+        fs.writeFile('NewReadme.md', data, err => {
+            if (err) {
+                console.log(err)
+                return
+            } else {
+                console.log("Your new readme is doneeeeeeee wowwww so ebic amazing just pure coding skill no jk I still suck but hey u have a readme now :)")
+            }
+        })
+    }
+    return newFile(data)
 })
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
+// // TODO: Create a function to initialize app
+// function init() {}
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
