@@ -1,8 +1,14 @@
-// TODO: Include packages needed for this application
+// some consts required to initiate this readme generator
+
 const fs = require('fs')
 const inquirer = require('inquirer')
+
+// brings in the readme js file so it can gather the user inputted data
+
 const newReadme = require('./utils/generateMarkdown.js')
-// TODO: Create an array of questions for user input
+
+// questions to ask the user
+
 const questions = () => {
     return inquirer.prompt([
         {
@@ -64,6 +70,8 @@ questions()
 
 .catch(err => {console.log(err)})
 
+// writes/creates the new readme file, including all the relevant data
+
 .then(data => {
     const newFile = data => {
         fs.writeFile('NewReadme.md', data, err => {
@@ -78,11 +86,3 @@ questions()
     return newFile(data)
 })
 
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
